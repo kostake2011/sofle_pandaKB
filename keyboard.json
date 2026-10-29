@@ -1,6 +1,6 @@
 {
-    "keyboard_name": "Sofle RGB",
-    "manufacturer": "PandaKB.COM",
+    "keyboard_name": "Sofle_Kostake2011",
+    "manufacturer": "Sofle_Kostake2011",
     "url": "https://github.com/PandaKBLab/QMK-firmware-for-keyboards",
     "maintainer": "PandaKB.COM",
     "processor": "RP2040",
@@ -59,7 +59,8 @@
                 "matrix_state": true,
                 "layer_state": true,
                 "modifiers": true,
-                "indicators": true
+                "indicators": true,
+                "wpm": true
             }
         },
         "encoder": {

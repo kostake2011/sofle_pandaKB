@@ -5,8 +5,8 @@
  * поэтому LOW_IS_LEFT остаётся здесь. */
 #define SPLIT_HAND_PIN_LOW_IS_LEFT
 
-/* Стабильность split (matrix_state уже в keyboard.json) */
-#define MASTER_LEFT
+/* Стабильность split (matrix_state уже в keyboard.json).
+ * Master = сторона с USB (удобно для продажи). */
 #define SPLIT_MAX_CONNECTION_ERRORS 10
 #define SPLIT_CONNECTION_CHECK_TIMEOUT 500
 

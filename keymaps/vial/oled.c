@@ -136,7 +136,7 @@ static void render_sleep(bool left_hand) {
 }
 
 // ---------- левый экран ----------
-static const char PROGMEM layer_names[4][5] = {"BASE", "LOWR", "RAIS", "COLM"};
+static const char PROGMEM layer_names[4][5] = {"BASE", "FN  ", "RAIS", "COLM"};
 
 static uint32_t wpm_smooth = 0;
 static uint8_t  bongo_frame = 0;

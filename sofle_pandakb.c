@@ -24,3 +24,36 @@ __attribute__((weak))
 const uint8_t PROGMEM encoder_hand_swap_config[NUM_ENCODERS] = {1, 0};
 
 #endif
+
+#ifdef RGB_MATRIX_ENABLE
+/* Индикаторные LED: индекс 0 (лево) и 36 (право).
+ * Не зависят от эффекта Vial — перекрашиваются каждый кадр.
+ * Яркость ~50% (0–128). Caps перекрывает цвет слоя. */
+bool rgb_matrix_indicators_user(void) {
+    uint8_t r = 0, g = 0, b = 0;
+
+    /* max_brightness=128 → ~50%; BASE выкл, слой/Caps — цвет */
+    if (host_keyboard_led_state().caps_lock) {
+        r = 64; g = 0; b = 0; /* красный ~50% */
+    } else {
+        switch (get_highest_layer(layer_state)) {
+            case 0: /* BASE — выкл */
+                r = 0; g = 0; b = 0;
+                break;
+            case 1: /* FN — синий */
+                r = 0; g = 20; b = 64;
+                break;
+            case 2: /* RAIS — зелёный */
+                r = 0; g = 64; b = 20;
+                break;
+            default: /* COLM / прочие — фиолетовый */
+                r = 50; g = 0; b = 64;
+                break;
+        }
+    }
+
+    rgb_matrix_set_color(0, r, g, b);
+    rgb_matrix_set_color(36, r, g, b);
+    return false;
+}
+#endif
